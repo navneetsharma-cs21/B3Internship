@@ -60,26 +60,72 @@
     <div class="container">
         <h2>Area Calculator</h2>
         <label>Select Shape</label>
-        <select id="shape">
+        <select id="shape" onchange="loadinput()">
             <option value="circle">Cricle</option>
             <option value="rectangle">Rectangle</option>
             <option value="square">Square</option>
-            <option value="eq.triangle">Triangle</option>
-            <option value="parallelogram">Parallelogram</option>
-            <option value="prism">Prism</option>
-            <option value="cylinder">Cylinder</option>
-            <option value="Sphere">Sphere</option>
-            <option value="pyramid">Pyramid</option>
+            <option value="triangle">Triangle</option>
         </select>
 
-        <div class="inputs">
+        <div id="inputs">
 
         </div>
 
-        <button>Calculate</button>
+        <button onclick="CalculateArea()">Calculate</button>
         <div id="result">Area : </div>
     </div>
     
+<script>
+    function loadinput(){
+        const shape = document.getElementById("shape").value;
+        const inputDiv = document.getElementById("inputs");
 
+        let html = "";
+
+        if(shape === "circle"){
+            html = '<label>Radius:</label><input type="number" id="radius">'
+            }
+        else if (shape === "rectangle") {
+            html = '<label>Width:</label><input type="number" id="width">' +
+                   '<label>Height:</label><input type="number" id="height">';
+            } 
+        else if (shape === "square") {
+            html = '<label>Side:</label><input type="number" id="side">';
+            } 
+        else if (shape === "triangle") {
+            html = '<label>Base:</label><input type="number" id="base">' +
+                  '<label>Height:</label><input type="number" id="triHeight">';
+        }
+        inputDiv.innerHTML = html;
+    }
+
+    function CalculateArea(){
+        const shape = document.getElementById("shape").value;
+        let area = 0;
+
+        if(shape === "circle"){
+            const r = parseFloat(document.getElementById("radius").value);
+            area = Math.PI * r* r;
+            }
+        else if (shape === "rectangle") {
+            const w = parseFloat(document.getElementById("width").value);
+            const h = parseFloat(document.getElementById("height").value);
+            area = w * h;
+            }
+        else if (shape === "square") {
+            const s = parseFloat(document.getElementById("side").value);
+            area = s * s;
+            }
+        else if (shape === "triangle") {
+            const b = parseFloat(document.getElementById("base").value);
+            const h = parseFloat(document.getElementById("triHeight").value);
+            area = 0.5 * b * h;
+            }
+    document.getElementById("result").innerHTML ="Area: " + area.toFixed(2);
+    }
+
+    loadinput();
+    
+</script>
 </body>
 </html>
