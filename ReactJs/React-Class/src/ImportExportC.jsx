@@ -1,23 +1,23 @@
 function ImportExportC() {
-  return (
-  <>
-    <h1>Import And Export Of Component</h1>
-  </>
-  )
-}
-
-export function Login() { //named export
-    return(
+    return (
         <>
-        <h4>Login User Component</h4>
+            <h1>Import And Export Of Component</h1>
         </>
     )
 }
 
-export function Setting(){
-    return(
+export function Login() { //named export
+    return (
         <>
-        <h4>This is setting Component</h4>
+            <h4>Login User Component</h4>
+        </>
+    )
+}
+
+export function Setting() {
+    return (
+        <>
+            <h4>This is setting Component</h4>
         </>
     )
 }

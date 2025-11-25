@@ -1,25 +1,25 @@
 
 
-function ClickEvent(){
-    function handleClick(){
+function ClickEvent() {
+    function handleClick() {
         alert("Button Clicked")
     }
 
-    const fruit = (name)=> {
+    const fruit = (name) => {
         alert(name)
     }
 
-    const color = ()=>{
+    const color = () => {
         alert("Red")
     }
 
-    return(
+    return (
         <>
-        <h2>Click Event and Function Call </h2>
-        <button onClick={handleClick}>Click me</button>
-        <button onClick={()=>fruit("Banana")}>Banana</button>
-        <button onClick={()=>fruit("Apple")}>Apple</button>
-        <button onClick={color}>Red</button>
+            <h2>Click Event and Function Call </h2>
+            <button onClick={handleClick}>Click me</button>
+            <button onClick={() => fruit("Banana")}>Banana</button>
+            <button onClick={() => fruit("Apple")}>Apple</button>
+            <button onClick={color}>Red</button>
         </>
     )
 }
